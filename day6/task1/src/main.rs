@@ -1,11 +1,12 @@
 use std::collections::HashMap;
-#[derive(Debug)]
-struct FishPopulation {
+
+#[derive(Debug, Clone)]
+pub struct FishPopulation {
     population: [usize; 9],
 }
 
 impl FishPopulation {
-    fn from_str(input: &str) -> Self {
+    pub fn from_str(input: &str) -> Self {
         let input = input
             .split(',')
             .map(|l| l.parse::<usize>().unwrap() - 1)
@@ -23,11 +24,11 @@ impl FishPopulation {
             population: new_population,
         }
     }
-    fn count(&self) -> usize {
+    pub fn count(&self) -> usize {
         self.population.iter().fold(0, |x, y| x + y)
     }
 
-    fn one_day(&mut self) -> () {
+    pub fn one_day(&mut self) -> () {
         let to_be_born = self.population[0];
         let mut new_population = [0; 9];
         for i in 1..9 {
