@@ -195,5 +195,6 @@ mod tests {
         assert_eq!(binary_b, 2);
         let binary_c = 1 << (b'c' - b'a') as u8;
         assert_eq!(binary_c, 4);
+        assert_eq!(1.count_zeros(), 0);
     }
 }
